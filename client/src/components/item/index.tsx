@@ -1,6 +1,6 @@
 import "./styles.css"
 
-export const Item = (props) => {
+export const Item = (props: { id: number; image: string; name: string; new_price: number; old_price: number; }) => {
     return (
         <div className="item">
             <img src={props.image} alt="" />
@@ -11,7 +11,7 @@ export const Item = (props) => {
                 </div>
 
                 <div className="item-price-old">
-                ${props.old_price}
+                    ${props.old_price}
                 </div>
             </div>
         </div>
