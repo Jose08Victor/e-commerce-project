@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavBar } from '../components/navbar'
 import { Shop } from '../pages/Shop'
 import { Cart } from '../pages/Cart'
-import { Product } from '../pages/Product'
+import { Product } from '../pages/product'
 import { ShopCategory } from '../pages/shopCategory'
-import { LoginSignup } from '../pages/LoginSignup'
+import { LoginSignUp } from '../pages/loginSignUp'
 import { Footer } from '../components/footer'
 import men_banner from '../assets/banner_mens.png'
 import women_banner from '../assets/banner_women.png'
@@ -28,7 +28,7 @@ export function AppRoutes() {
 
                 <Route path='/cart' element={<Cart />} />
 
-                <Route path='/login' element={<LoginSignup />} />
+                <Route path='/login' element={<LoginSignUp />} />
             </Routes>
 
             <Footer />
