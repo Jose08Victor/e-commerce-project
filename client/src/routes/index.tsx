@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavBar } from '../components/navbar'
 import { Shop } from '../pages/Shop'
-import { Cart } from '../pages/Cart'
+import { Cart } from '../pages/cart'
 import { Product } from '../pages/product'
 import { ShopCategory } from '../pages/shopCategory'
 import { LoginSignUp } from '../pages/loginSignUp'
