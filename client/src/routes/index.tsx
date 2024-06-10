@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavBar } from '../components/navbar'
-import { Shop } from '../pages/Shop'
+import { Shop } from '../pages/shop'
 import { Cart } from '../pages/cart'
 import { Product } from '../pages/product'
 import { ShopCategory } from '../pages/shopCategory'
