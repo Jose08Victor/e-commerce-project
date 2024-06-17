@@ -7,14 +7,14 @@ import { ShopContext } from "../../context/shopContext"
 import nav_dropdown from "../../assets/dropdown_icon.png"
 
 export const NavBar = () => {
-const [menu, setMenu] = useState("shop");
-const { getTotalCartItems } = useContext(ShopContext);
-const menuRef = useRef();
+    const [menu, setMenu] = useState("shop");
+    const { getTotalCartItems } = useContext(ShopContext);
+    const menuRef = useRef();
 
-const dropdown_toggle = (e) => {
-    menuRef.current.classList.toggle('nav-menu-visible');
-    e.target.classList.toggle('open');
-}
+    const dropdown_toggle = (e) => {
+        menuRef.current.classList.toggle('nav-menu-visible');
+        e.target.classList.toggle('open');
+    }
 
     return (
         <header className="navbar">
@@ -26,17 +26,20 @@ const dropdown_toggle = (e) => {
             <img className="nav-dropdown" onClick={dropdown_toggle} src={nav_dropdown} alt="" />
 
             <ul ref={menuRef} className="nav-menu">
-                <li onClick={()=> {setMenu("shop")}}><Link to="/">Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
-                <li onClick={()=> {setMenu("mens")}}><Link to="/mens">Man</Link>{menu==="mens"?<hr/>:<></>}</li>
-                <li onClick={()=> {setMenu("womens")}}><Link to="/womens">Woman</Link>{menu==="womens"?<hr/>:<></>}</li>
-                <li onClick={()=> {setMenu("kids")}}><Link to="/kids">Kids</Link>{menu==="kids"?<hr/>:<></>}</li>
+                <li onClick={() => { setMenu("shop") }}><Link to="/">Shop</Link>{menu === "shop" ? <hr /> : <></>}</li>
+                <li onClick={() => { setMenu("mens") }}><Link to="/mens">Man</Link>{menu === "mens" ? <hr /> : <></>}</li>
+                <li onClick={() => { setMenu("womens") }}><Link to="/womens">Woman</Link>{menu === "womens" ? <hr /> : <></>}</li>
+                <li onClick={() => { setMenu("kids") }}><Link to="/kids">Kids</Link>{menu === "kids" ? <hr /> : <></>}</li>
             </ul>
 
             <div className="nav-login-cart">
-            <Link to="/login"><button>Login</button></Link>
+                {localStorage.getItem('auth-token')
+                 ? <button onClick={() => { localStorage.removeItem('auth-token'); window.location.replace('/') }}>Logout</button>
+                 : <Link to="/login"><button>Login</button></Link>}
+
                 <Link to="/cart"><img src={cart_icon} alt="Cart Icon" /></Link>
                 <div className="nav-cart-count">{getTotalCartItems()}</div>
             </div>
-        </header>
+        </header >
     )
 }
